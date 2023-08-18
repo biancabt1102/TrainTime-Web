@@ -6,7 +6,7 @@ export default function Avaliacao() {
       <NavBar active={"avaliacao"} />
 
       <main className="bg-emerald-900 m-12 p-4 rounded">
-        <h2 className="text-center">Lista de exercícios</h2>
+        <h2 className="text-center">Cadastrar exercícios</h2>
       </main>
     </>
   );
