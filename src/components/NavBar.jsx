@@ -10,12 +10,12 @@ export default function NavBar({ active }) {
                     </Link>
                 </li>
                 <li>
-                    <Link className={`${active=="avaliacao" && "text-emerald-300"} ${"font-mont font-normal"}`} href="/avaliacao">
+                    <Link className={`${active=="avaliacao" && "text-emerald-300"} ${"font-museo font-normal"}`} href="/avaliacao">
                         Cadastrar exercício
                     </Link>
                 </li>
                 <li>
-                    <Link className={`${active=="exercicios" && "text-emerald-300"} ${"font-mont font-normal"}`} href="/exercicios">
+                    <Link className={`${active=="exercicios" && "text-emerald-300"} ${"font-museo font-normal"}`} href="/exercicios">
                         Visualizar exercícios
                     </Link>
                 </li>

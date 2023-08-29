@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     fontFamily: {
       grad:['Graduate','cursive'],
-      mont:['Montserrat','cursive']
+      mont:['Montserrat','cursive'],
+      museo:['MuseoModerno','cursive']
     },
     extend: {
       backgroundImage: {
