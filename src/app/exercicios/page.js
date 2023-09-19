@@ -2,13 +2,8 @@ import NavBar from "@/components/NavBar";
 import DataRow from "@/app/exercicios/DataRow";
 import Button from "@/components/Button";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import { getExercicios } from "@/actions/avaliacoes";
 
-async function getExercicios() {
-  const url = "http://localhost:8080/traintime/api/exercicios";
-  const resp = await fetch(url);
-  const data = await resp.json();
-  return data._embedded.entityModelList;
-}
 
 export default async function Exercicios() {
   const data = await getExercicios();

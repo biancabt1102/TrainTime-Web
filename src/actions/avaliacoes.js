@@ -1,9 +1,10 @@
 "use server"
 
-import { revalidatePath } from "next/cache"
+import { revalidatePath } from "next/cache";
 
-export async function create(formData){
-    const url = "http://localhost:8080/traintime/api/avaliacao"
+const url = process.env.NEXT_PUBLIC_BASE_URL + "/avaliacao";
+
+export async function create(formData) {
     const options = {
         method: "POST",
         body: JSON.stringify(Object.fromEntries(formData)),
@@ -13,11 +14,19 @@ export async function create(formData){
     }
     
     const resp = await fetch(url, options)
-    if (resp.status !== 201){
-        return {message: "Erro ao cadastrar"}
+    if (resp.status !== 201) {
+        return { message: "Erro ao cadastrar" }
     }
     
     revalidatePath("/contas")
-    return {message: "ok"}
-       
+    return { message: "ok" }
+    
+}
+
+export async function getExercicios() {
+    const url = process.env.NEXT_PUBLIC_BASE_URL + "/exercicios";
+    
+    const resp = await fetch(url);
+    const data = await resp.json();
+    return data._embedded.entityModelList;
 }
