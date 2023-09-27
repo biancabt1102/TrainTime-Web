@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 
-const url = process.env.NEXT_PUBLIC_BASE_URL + "/avaliacao";
+const postUrl = process.env.NEXT_PUBLIC_BASE_URL + "/avaliacao";
+const getUrl = process.env.NEXT_PUBLIC_BASE_URL + "/exercicios?page=0&size=10";
 
 export async function create(formData) {
     const options = {
@@ -13,7 +14,7 @@ export async function create(formData) {
         }
     }
     
-    const resp = await fetch(url, options)
+    const resp = await fetch(postUrl, options)
     if (resp.status !== 201) {
         return { message: "Erro ao cadastrar" }
     }
@@ -24,9 +25,7 @@ export async function create(formData) {
 }
 
 export async function getExercicios() {
-    const url = process.env.NEXT_PUBLIC_BASE_URL + "/exercicios";
-    
-    const resp = await fetch(url);
+    const resp = await fetch(getUrl);
     const data = await resp.json();
     return data._embedded.entityModelList;
 }
