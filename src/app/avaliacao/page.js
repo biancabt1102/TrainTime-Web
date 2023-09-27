@@ -36,7 +36,7 @@ export default function Avaliacao() {
       <NavBar active={"avaliacao"} />
 
       <main className="bg-emerald-900 m-12 p-4 rounded">
-        <h2 className="text-center">Cadastrar exercícios</h2>
+        <h2 className="text-center text-emerald-100 text-2xl">Cadastrar exercícios</h2>
 
         <form action={onCreate} className="p-4">
           <InputText label="Nome do exercício" placeholder="Digite o nome do exercício"

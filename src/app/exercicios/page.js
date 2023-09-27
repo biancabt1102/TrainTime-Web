@@ -14,7 +14,7 @@ export default async function Exercicios() {
 
       <main className="bg-emerald-900 m-12 p-4 rounded">
         <div className="flex justify-around items-center">
-          <h2 className="text-center font-museo font-semibold text-2xl">Lista de exercícios</h2>
+          <h2 className="text-center font-museo font-semibold text-2xl text-emerald-100">Lista de exercícios</h2>
           <Button href="/avaliacao"><PlusIcon className="h-8 w-8" /></Button>
         </div>
 
