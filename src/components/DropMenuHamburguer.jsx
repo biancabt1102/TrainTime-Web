@@ -6,20 +6,37 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {Bars3Icon} from "@heroicons/react/24/outline";
 import { apagar } from '@/actions/avaliacoes';
-
+import toast from 'react-hot-toast';
+import { useToast } from '@/hooks/toast';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { useRouter } from 'next/navigation';
 
 export default function DropMenuHamburguer({idExercicio}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    const { error, success } = useToast()
+    const { push } = useRouter()
+
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
+    
     const handleClose = () => {
       setAnchorEl(null);
     };
 
     const handleEdit = () => {
-      push(`/contas/${idConta}/edit`)
+      push(`/exercicios/${idExercicio}/edit`)
     }
   
     const handleDelete = async () => {
@@ -52,10 +69,27 @@ export default function DropMenuHamburguer({idExercicio}) {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={handleClose}>Editar</MenuItem>
-          <MenuItem onClick={handleClose}>Excluir</MenuItem>
-        </Menu>
-      </div>
-    );
+          <MenuItem onClick={handleEdit}>editar</MenuItem>
+          <AlertDialog>
+          <AlertDialogTrigger>
+            <MenuItem>apagar</MenuItem>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Tem certeza?</AlertDialogTitle>
+              <AlertDialogDescription>
+                Ao apagar o exercício, todos os dados serão perdidos. Essa ação não tem volta.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>cancelar</AlertDialogCancel>
+              <AlertDialogAction onClick={handleDelete}>sim, quero apagar esse exercício</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
+      </Menu>
+    </div>
+  );
 }
 
