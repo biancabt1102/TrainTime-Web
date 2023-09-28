@@ -5,9 +5,10 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {Bars3Icon} from "@heroicons/react/24/outline";
+import { apagar } from '@/actions/avaliacoes';
 
 
-export default function DropMenuHamburguer() {
+export default function DropMenuHamburguer({idExercicio}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -16,6 +17,20 @@ export default function DropMenuHamburguer() {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const handleEdit = () => {
+      push(`/contas/${idConta}/edit`)
+    }
+  
+    const handleDelete = async () => {
+      const resp = await apagar(idExercicio)
+  
+      resp?.error ?
+        error(resp.error) :
+        success("conta apagada com sucesso")
+  
+      handleClose()
+    }
   
     return (
       <div>
