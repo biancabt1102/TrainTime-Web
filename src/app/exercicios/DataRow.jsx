@@ -39,7 +39,7 @@ export default function DataRow({ exercicio }) {
                       }}>
                         <div className=' flex items-center justify-center w-full ' >
                             <div className='ms-auto w-6/12' >
-                                <span className='content-center' >{exercicio.diaDaSemanaId}</span>    
+                                <span className='content-center text-emerald-100' >{exercicio.diaDaSemanaId}</span>    
                             </div>
                             <div>
                                 <div onClick={handleDropMenuClick} className=''>
