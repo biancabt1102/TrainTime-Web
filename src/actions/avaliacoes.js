@@ -55,7 +55,7 @@ export async function getExercicio(id){
 }
 
 export async function update(avaliacao){
-    const updateUrl =  url + "/" + avaliacao.id
+    const updateUrl =  url + "/" + avaliacao.idExercicio
 
     const options = {
         method: "PUT",
