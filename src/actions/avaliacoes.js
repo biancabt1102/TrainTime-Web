@@ -19,7 +19,7 @@ export async function create(formData) {
         return { message: "Erro ao cadastrar" }
     }
     
-    revalidatePath("/contas")
+    revalidatePath("/exercicios")
     return { message: "ok" }
     
 }
