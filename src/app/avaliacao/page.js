@@ -25,7 +25,7 @@ export default function Avaliacao() {
     const resp = await create(formData);
 
     if (resp.message === "ok") {
-      redirect("/avaliacao")
+      redirect("/exercicios")
       return
     }
     setErro(resp.message);
