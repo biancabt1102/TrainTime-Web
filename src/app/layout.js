@@ -1,6 +1,7 @@
 import { Toaster } from 'react-hot-toast';
-import './globals.css'
-import { Inter } from 'next/font/google'
+import './globals.css';
+import { Inter } from 'next/font/google';
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,9 +27,11 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap" rel="stylesheet" />
       </head>
       <body className={inter.className}>
-        {children}
-        <Toaster/>
-        </body>
+        <AuthProvider>
+          {children}
+          <Toaster position="bottom-right" />
+        </AuthProvider>
+      </body>
     </html>
   );
 }

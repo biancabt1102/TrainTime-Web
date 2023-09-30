@@ -1,16 +1,20 @@
 "use server"
 
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 
 const url = process.env.NEXT_PUBLIC_BASE_URL + "/avaliacao";
 const getUrl = process.env.NEXT_PUBLIC_BASE_URL + "/exercicios?page=0&size=10";
 
 export async function create(formData) {
+    const token = cookies().get("traintime_token");
+
     const options = {
         method: "POST",
         body: JSON.stringify(Object.fromEntries(formData)),
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token.value}`
         }
     }
     

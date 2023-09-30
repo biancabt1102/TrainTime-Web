@@ -22,6 +22,7 @@ export default function Avaliacao() {
   const [erro, setErro] = useState("");
 
   async function onCreate(formData) {
+    console.log(formData)
     const resp = await create(formData);
 
     if (resp.message === "ok") {

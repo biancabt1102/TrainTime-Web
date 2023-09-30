@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default function InputText({ label, id, ...props }) {
+export default function InputTextLogin({ label, id, name, register=()=>{},...props }) {
     return (
         <div className='flex flex-col gap-1 my-2'>
             <label htmlFor={id} className='text-white'>{label}</label>
             <input
+                {...register(name)}
                 id={id}
                 type="text"
                 {...props}

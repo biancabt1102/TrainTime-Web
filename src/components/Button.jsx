@@ -17,7 +17,7 @@ export default function Button({children, variant="primary", type="link", ...pro
                     {children}
                 </Link> 
                 :
-                <button className={variantClass}>
+                <button className={variantClass} {...props}>
                     {children}
                 </button>
             }
